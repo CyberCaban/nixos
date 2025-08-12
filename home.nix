@@ -20,6 +20,10 @@
     nodejs
     beamMinimal27Packages.elixir
     yazi
+    # flameshot
+    (flameshot.override { enableWlrSupport = true; })
+    # google-chrome
+    qbittorrent
 	];
 
   home.pointerCursor = {
@@ -58,6 +62,7 @@
         };
       };
     };
+    obsidian.enable = true;
   };
   home.stateVersion = "25.05";
 }

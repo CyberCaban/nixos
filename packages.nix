@@ -13,7 +13,7 @@
   # Default terminal
   alacritty
   # file manager
-  xfce.thunar
+  nautilus
   # dmenu
   wofi
   # brightness control
@@ -26,6 +26,15 @@
   # notification daemon
   dunst
   libnotify
+  # resource monitor
+  btop
+  #video playback
+  mpv
+  totem
+  # image viewer
+  loupe
+  # logout menu
+  wlogout
 
   #network manager 
   networkmanagerapplet
