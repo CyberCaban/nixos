@@ -4,6 +4,7 @@
 {
   imports = [
     ./pywal
+    ./wallust
   ];
 
 	home.username = "dmitry";
@@ -24,6 +25,7 @@
     (flameshot.override { enableWlrSupport = true; })
     # google-chrome
     qbittorrent
+    wallust
 	];
 
   home.pointerCursor = {
