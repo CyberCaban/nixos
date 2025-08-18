@@ -1,6 +1,12 @@
 { pkgs, inputs, ... }: with pkgs; [
+  git
   wget
   sudo
+  # archivers
+  gnutar
+  p7zip
+  zip
+  # network
   nftables
   # devel
   vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
@@ -12,8 +18,13 @@
   # WM things
   # Default terminal
   alacritty
+  kitty
   # file manager
   nautilus
+  # pdf viewer
+  zathura
+  # md viewer
+  glow
   # dmenu
   wofi
   # brightness control
@@ -43,4 +54,5 @@
   hypridle
   # wallpapers
   inputs.swww.packages.${pkgs.system}.swww
+  waytrogen
 ]

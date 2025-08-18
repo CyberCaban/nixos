@@ -52,10 +52,19 @@
   };
 
   # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "us,ru";
-    options = "grp:alt_shift_toggle";
-    variant = "";
+  services = {
+    xserver.xkb = {
+      layout = "us,ru";
+      options = "grp:alt_shift_toggle";
+      variant = "";
+    };
+    openssh = {
+      enable = true;
+      settings = {
+        PermitRootLogin = "no";
+      };
+      openFirewall = true;
+    };
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -76,6 +85,13 @@
     steam.enable = true;
   };
 
+  virtualisation.docker = {
+    enable = true;
+    rootless = {
+      enable = true;
+      setSocketVariable = true;
+    };
+  };
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"

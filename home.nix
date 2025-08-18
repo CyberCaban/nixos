@@ -3,7 +3,6 @@
 
 {
   imports = [
-    ./pywal
     ./wallust
   ];
 
@@ -26,6 +25,12 @@
     # google-chrome
     qbittorrent
     wallust
+    woomer
+    gh
+    poetry
+    python313
+    python313Packages.pip
+    prismlauncher
 	];
 
   home.pointerCursor = {
@@ -49,11 +54,6 @@
   programs = {
     home-manager.enable = true;
     vesktop.enable = true;
-    git = {
-      enable = true;
-      userName = "Dmitry";
-      userEmail = "andrewgamer63@gmail.com";
-    };
     lazygit = {
       enable = true;
       settings = {
