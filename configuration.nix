@@ -77,8 +77,28 @@
 
   # RICE START ```
   services.displayManager.gdm.enable = true;
+  services.gns3-server = {
+    enable = true;
+
+    auth = {
+      enable = true;
+      user = "gns3";
+      passwordFile = "/var/lib/secrets/gns3_password";
+    };
+
+    ssl = {
+      enable = true;
+      certFile = "/var/lib/gns3/ssl/cert.pem";
+      keyFile = "/var/lib/gns3/ssl/key.pem";
+    };
+
+    dynamips.enable = true;
+    ubridge.enable = true;
+    vpcs.enable = true;
+  };
   programs = { 
     hyprland = { 
+
       enable = true;
       xwayland.enable = true;
     };
@@ -92,6 +112,7 @@
       setSocketVariable = true;
     };
   };
+  hardware.opengl.enable = true;
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"
@@ -128,8 +149,8 @@
   # services.openssh.enable = true;
 
   # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
+  networking.firewall.allowedTCPPorts = [ 25565 ];
+  networking.firewall.allowedUDPPorts = [ 25565 ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 

@@ -6,13 +6,18 @@
   gnutar
   p7zip
   zip
+  unzip
   # network
   nftables
   # devel
   vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   neovim
   gcc
+  gcc.cc.lib
   rustup
+  tmux
+  lazydocker
+  yazi
   # find - fd
   fd
   # WM things
@@ -55,4 +60,8 @@
   # wallpapers
   inputs.swww.packages.${pkgs.system}.swww
   waytrogen
+  # colorschemes
+  wallust
+  # wayland zoom
+  woomer
 ]

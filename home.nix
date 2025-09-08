@@ -18,19 +18,17 @@
     telegram-desktop
     bun
     nodejs
-    beamMinimal27Packages.elixir
-    yazi
     # flameshot
     (flameshot.override { enableWlrSupport = true; })
     # google-chrome
     qbittorrent
-    wallust
-    woomer
     gh
     poetry
     python313
     python313Packages.pip
     prismlauncher
+    temurin-jre-bin
+    inetutils
 	];
 
   home.pointerCursor = {
