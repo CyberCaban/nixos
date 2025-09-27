@@ -29,6 +29,7 @@
     prismlauncher
     temurin-jre-bin
     inetutils
+    jetbrains.idea-community
 	];
 
   home.pointerCursor = {

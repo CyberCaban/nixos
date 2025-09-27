@@ -117,11 +117,19 @@
     "nix-command"
     "flakes"
   ];
+  # Auto gc
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 7d";
+  };
 
+  # Store optimise
+  nix.settings.auto-optimise-store = true;
   fonts.packages = with pkgs; [
     nerd-fonts.fira-code
   ];
-
+  programs.nix-ld.enable = true;
   xdg.portal = {
     enable = true;
     extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
