@@ -11,7 +11,6 @@
 	home.packages = with pkgs; [
 	  inputs.zen-browser.packages."${system}".twilight
     pkgs.bibata-cursors
-    pkgs.flat-remix-gtk
     fira-code
     psmisc
     pavucontrol
@@ -23,7 +22,6 @@
     # google-chrome
     qbittorrent
     gh
-    poetry
     python313
     python313Packages.pip
     prismlauncher
@@ -40,10 +38,6 @@
   };
   gtk = {
     enable = true;
-    theme = {
-      package = pkgs.flat-remix-gtk;
-      name = "Flat-Remix-GTK-Grey-Darkest";
-    };
     cursorTheme= {
       name = "Bibata-Modern-Classic";
       package = pkgs.bibata-cursors;

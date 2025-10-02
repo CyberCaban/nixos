@@ -98,7 +98,6 @@
   };
   programs = { 
     hyprland = { 
-
       enable = true;
       xwayland.enable = true;
     };
@@ -112,7 +111,7 @@
       setSocketVariable = true;
     };
   };
-  hardware.opengl.enable = true;
+  hardware.graphics.enable = true;
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"
@@ -129,6 +128,7 @@
   fonts.packages = with pkgs; [
     nerd-fonts.fira-code
   ];
+  # nix-ld for dynamic linked programs
   programs.nix-ld.enable = true;
   xdg.portal = {
     enable = true;
