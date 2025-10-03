@@ -64,4 +64,6 @@
   wallust
   # wayland zoom
   woomer
+  # disk usage analyzer
+  dust
 ]
