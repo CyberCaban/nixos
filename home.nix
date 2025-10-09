@@ -8,6 +8,7 @@
 
 	home.username = "dmitry";
 	home.homeDirectory = "/home/dmitry";
+  home.stateVersion = "25.05";
 	home.packages = with pkgs; [
 	  inputs.zen-browser.packages."${system}".twilight
     pkgs.bibata-cursors
@@ -64,5 +65,4 @@
     };
     obsidian.enable = true;
   };
-  home.stateVersion = "25.05";
 }

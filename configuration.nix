@@ -111,7 +111,7 @@
       setSocketVariable = true;
     };
   };
-  hardware.opengl.enable = true;
+  hardware.graphics.enable = true;
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"
