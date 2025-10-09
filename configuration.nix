@@ -14,11 +14,13 @@
   #boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader = {
+    timeout = 0;
     grub = {
       enable = true;
       device = "nodev";
       useOSProber = true;
       efiSupport = true;
+      timeoutStyle = "hidden"; # options: menu, hidden
     };
   };
 
@@ -76,7 +78,18 @@
   };
 
   # RICE START ```
-  services.displayManager.gdm.enable = true;
+  services.displayManager = {
+    defaultSession = "hyprland";
+    autoLogin = {
+        enable = true; # set to false for different DE or WM
+        user = "dmitry";
+    };
+    gdm = {
+        enable = true;
+        autoLogin.delay = 0;
+        settings = { };
+    };
+  };
   services.gns3-server = {
     enable = true;
 
