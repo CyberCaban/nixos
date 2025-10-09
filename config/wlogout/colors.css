@@ -1,0 +1,29 @@
+/* CSS variables for wlogout
+ * You can add it to wallust.toml with:
+
+waybar = { src = "wlogout.css", dst = "~/.config/wlogout/colors.css" }
+
+ * And then in you wlogout 'style.css' file, import it with:
+
+@import url("colors.css");
+ */
+
+@define-color cursor #BF939B;
+@define-color background #0E0709;
+@define-color foreground #8F8A8B;
+@define-color color0  #37342F;
+@define-color color1  #1D0007;
+@define-color color2  #440013;
+@define-color color3  #6D0010;
+@define-color color4  #802000;
+@define-color color5  #98001B;
+@define-color color6  #8E6100;
+@define-color color7  #8B8284;
+@define-color color8  #615B5C;
+@define-color color9  #270009;
+@define-color color10 #5B0019;
+@define-color color11 #920017;
+@define-color color12 #AB2B00;
+@define-color color13 #CA0025;
+@define-color color14 #BE8100;
+@define-color color15 #8B8284;

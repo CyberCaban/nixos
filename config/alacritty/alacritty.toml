@@ -1,0 +1,23 @@
+[general]
+live_config_reload = true
+# import = ["./colors.toml"]
+[window]
+dimensions = { columns = 80, lines = 24 }
+dynamic_title = true
+opacity = 0.97
+padding = { x = 8, y = 8 }
+dynamic_padding = true
+decorations = "None"
+[font]
+normal = { family = "FiraCode Nerd Font Mono", style = "Regular" }
+size = 13
+builtin_box_drawing = true
+[cursor]
+style = { shape = "Block", blinking = "On" }
+blink_interval = 501
+
+[colors.primary]
+# background = "#d8d8d8"
+# foreground = "#181818"
+background = "#181818"
+foreground = "#d8d8d8"

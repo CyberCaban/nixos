@@ -1,9 +1,26 @@
 
 { config, pkgs, system, inputs, ... }:
 
+let
+  dotfiles = "${config.home.homeDirectory}/Documents/nixos/config";
+  create_symlink = path: config.lib.file.mkOutOfStoreSymlink path;
+
+  configs = {
+    alacritty = "alacritty";
+    btop = "btop";
+    dunst = "dunst";
+    hypr = "hypr";
+    kitty = "kitty";
+    wallust = "wallust";
+    waybar = "waybar";
+    waytrogen = "waytrogen";
+    wlogout = "wlogout";
+    yazi = "yazi";
+  };
+in
 {
   imports = [
-    ./wallust
+
   ];
 
 	home.username = "dmitry";
@@ -30,6 +47,16 @@
     temurin-jre-bin
     inetutils
     jetbrains.idea-community
+    (pkgs.writeShellApplication {
+      name = "ns";
+      runtimeInputs = with pkgs; [
+        fzf
+        (nix-search-tv.overrideAttrs {
+          env.GOEXPERIMENT = "jsonv2";
+        })
+      ];
+      text = ''exec "${pkgs.nix-search-tv.src}/nixpkgs.sh" "$@"'';
+    })
 	];
 
   home.pointerCursor = {
@@ -50,6 +77,10 @@
     };
   };
 
+  home.file = {
+      ".bashrc".source = create_symlink "${dotfiles}/.bashrc";
+  };
+
   programs = {
     home-manager.enable = true;
     vesktop.enable = true;
@@ -65,4 +96,11 @@
     };
     obsidian.enable = true;
   };
+
+  xdg.configFile = builtins.mapAttrs 
+    (name: subpath: {
+        source = create_symlink "${dotfiles}/${subpath}";
+        recursive = true;
+      })
+    configs;
 }
