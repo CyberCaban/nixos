@@ -66,4 +66,6 @@
   woomer
   # disk usage analyzer
   dust
+  # devices automount
+  udiskie
 ]

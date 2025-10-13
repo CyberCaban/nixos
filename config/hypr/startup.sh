@@ -17,5 +17,7 @@ hypridle &
 #clipboard
 wl-paste --type text --watch cliphist store &  # store text clipboard
 wl-paste --type image --watch cliphist store & # store image clipboard
+# devices automount
+udiskie &
 
 change_wp
