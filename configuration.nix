@@ -12,6 +12,21 @@
 
   # Bootloader.
   #boot.loader.systemd-boot.enable = true;
+  boot.kernelParams = [
+    "quiet"
+    "splash"
+    "loglevel=3"
+    "rd.systemd.show_status=false"
+    "systemd.show_status=false"
+  ];
+  boot.plymouth = {
+      enable = true;
+      # themes:
+      # catppuccin-[latte/macchiato/frappe/mocha]
+      # bgrt
+      theme = "bgrt";
+      themePackages = [ pkgs.catppuccin-plymouth ];
+    };
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader = {
     timeout = 0;

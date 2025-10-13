@@ -177,9 +177,9 @@
     "margin-top": 0,
     "modules-left": [
       "custom/os_button",
-      "wlr/taskbar"
     ],
     "modules-center": [
+      "wlr/taskbar"
     ],
     "modules-right": [
     ],
@@ -196,8 +196,8 @@
       "on-click": "activate",
       "tooltip-format": "{title}",
       "ignore-list": [
-        "ghostty",
-        "Alacritty"
+        "ghostty"
+        // "Alacritty"
       ],
       "sort-by-app-id": true,
       "markup": true

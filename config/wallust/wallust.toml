@@ -59,4 +59,4 @@ gtk4 = { src = 'gtk.css', dst = '~/.config/gtk-4.0/colors.css' }
 
 dunst = { src = 'dunstrc', dst = '~/.config/dunst/dunstrc' }
 
-vesktop = { src = 'discord-colors.css', dst = '~/.config/vesktop/themes/pywal-vencord.theme.css' }
+vesktop = { src = 'discord.css', dst = '~/.config/vesktop/themes/pywal-vencord.theme.css' }

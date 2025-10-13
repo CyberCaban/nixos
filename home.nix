@@ -9,6 +9,7 @@ let
     alacritty = "alacritty";
     btop = "btop";
     dunst = "dunst";
+    flameshot = "flameshot";
     hypr = "hypr";
     kitty = "kitty";
     wallust = "wallust";
