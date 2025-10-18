@@ -68,4 +68,9 @@
   dust
   # devices automount
   udiskie
+  # monitor selection
+  nwg-displays
+  # connect media devices
+  mtpfs jmtpfs gvfs libmtp
+
 ]

@@ -164,44 +164,45 @@
       "format-alt": "{icon} {time}",
       "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
     }
-  },
-
-  {
-    "name": "os_dock",
-    "layer": "bottom",
-    "mode": "dock",
-    "position": "bottom",
-    "spacing": 8,
-    "margin-left": 10,
-    "margin-bottom": 10,
-    "margin-top": 0,
-    "modules-left": [
-      "custom/os_button",
-    ],
-    "modules-center": [
-      "wlr/taskbar"
-    ],
-    "modules-right": [
-    ],
-    "custom/os_button": {
-      "format": "",
-      "on-click": "wofi --show drun",
-      "tooltip": false
-    },
-    "wlr/taskbar": {
-      "format": "{icon}",
-      "icon-size": 36,
-      "spacing": 8,
-      "on-click-middle": "close",
-      "on-click": "activate",
-      "tooltip-format": "{title}",
-      "ignore-list": [
-        "ghostty"
-        // "Alacritty"
-      ],
-      "sort-by-app-id": true,
-      "markup": true
-    }
   }
+
+  // ,
+  // {
+  //   "name": "os_dock",
+  //   "layer": "bottom",
+  //   "mode": "hidden",
+  //   "position": "bottom",
+  //   "spacing": 8,
+  //   "margin-left": 10,
+  //   "margin-bottom": 10,
+  //   "margin-top": 0,
+  //   "modules-left": [
+  //     "custom/os_button",
+  //   ],
+  //   "modules-center": [
+  //     "wlr/taskbar"
+  //   ],
+  //   "modules-right": [
+  //   ],
+  //   "custom/os_button": {
+  //     "format": "",
+  //     "on-click": "wofi --show drun",
+  //     "tooltip": false
+  //   },
+  //   "wlr/taskbar": {
+  //     "format": "{icon}",
+  //     "icon-size": 36,
+  //     "spacing": 8,
+  //     "on-click-middle": "close",
+  //     "on-click": "activate",
+  //     "tooltip-format": "{title}",
+  //     "ignore-list": [
+  //       "ghostty",
+  //       "Alacritty"
+  //     ],
+  //     "sort-by-app-id": true,
+  //     "markup": true
+  //   }
+  // }
 
 ]

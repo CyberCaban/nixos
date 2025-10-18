@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+#################
+### AUTOSTART ###
+#################
+
 # the bar
 waybar &
 # wallpaper daemon
@@ -18,6 +22,6 @@ hypridle &
 wl-paste --type text --watch cliphist store &  # store text clipboard
 wl-paste --type image --watch cliphist store & # store image clipboard
 # devices automount
-udiskie &
+udiskie --tray --automount --notify &
 
 change_wp

@@ -93,6 +93,7 @@
   };
 
   # RICE START ```
+  services.udisks2.enable = true;
   services.displayManager = {
     defaultSession = "hyprland";
     autoLogin = {
