@@ -12,6 +12,7 @@ let
     flameshot = "flameshot";
     hypr = "hypr";
     kitty = "kitty";
+    nvim = "nvim";
     wallust = "wallust";
     waybar = "waybar";
     waytrogen = "waytrogen";

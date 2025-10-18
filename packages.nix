@@ -73,4 +73,5 @@
   # connect media devices
   mtpfs jmtpfs gvfs libmtp
 
+  vimPlugins.nvim-dbee
 ]
