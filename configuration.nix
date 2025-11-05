@@ -29,13 +29,13 @@
     };
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader = {
-    timeout = 0;
+    timeout = 5;
     grub = {
       enable = true;
       device = "nodev";
       useOSProber = true;
       efiSupport = true;
-      timeoutStyle = "hidden"; # options: menu, hidden
+      timeoutStyle = "menu"; # options: menu, hidden
     };
   };
 
@@ -77,6 +77,7 @@
     };
     openssh = {
       enable = true;
+      ports = [ 9876 ];
       settings = {
         PermitRootLogin = "no";
       };
@@ -88,7 +89,7 @@
   users.users.dmitry = {
     isNormalUser = true;
     description = "dmitry";
-    extraGroups = [ "networkmanager" "wheel" "network" ];
+    extraGroups = [ "networkmanager" "wheel" "network" "docker" ];
     packages = with pkgs; [];
   };
 
@@ -106,25 +107,6 @@
         settings = { };
     };
   };
-  services.gns3-server = {
-    enable = true;
-
-    auth = {
-      enable = true;
-      user = "gns3";
-      passwordFile = "/var/lib/secrets/gns3_password";
-    };
-
-    ssl = {
-      enable = true;
-      certFile = "/var/lib/gns3/ssl/cert.pem";
-      keyFile = "/var/lib/gns3/ssl/key.pem";
-    };
-
-    dynamips.enable = true;
-    ubridge.enable = true;
-    vpcs.enable = true;
-  };
   programs = { 
     hyprland = { 
       enable = true;
@@ -135,10 +117,10 @@
 
   virtualisation.docker = {
     enable = true;
-    rootless = {
-      enable = true;
-      setSocketVariable = true;
-    };
+    # rootless = {
+    #   enable = true;
+    #   setSocketVariable = true;
+    # };
   };
   hardware.graphics.enable = true;
   nix.settings.experimental-features = [
@@ -159,6 +141,15 @@
   ];
   # nix-ld for dynamic linked programs
   programs.nix-ld.enable = true;
+  programs.appimage = {
+    enable = true;
+    binfmt = true;
+    package = pkgs.appimage-run.override {
+      extraPkgs = pkgs: [
+      # extra packages for appimage format files
+      ];
+    };
+  };
   xdg.portal = {
     enable = true;
     extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
@@ -189,7 +180,6 @@
   networking.firewall.allowedTCPPorts = [ 25565 ];
   networking.firewall.allowedUDPPorts = [ 25565 ];
   # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

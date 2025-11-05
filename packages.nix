@@ -1,4 +1,5 @@
 { pkgs, inputs, ... }: with pkgs; [
+  file
   git
   wget
   sudo
@@ -62,8 +63,7 @@
   waytrogen
   # colorschemes
   wallust
-  # wayland zoom
-  woomer
+  # wayland zoom woomer
   # disk usage analyzer
   dust
   # devices automount
@@ -74,4 +74,12 @@
   mtpfs jmtpfs gvfs libmtp
 
   vimPlugins.nvim-dbee
+  # wine
+  wineWowPackages.stable
+  # internalisation for C# apps
+  icu
+  # global java 21
+  temurin-bin
+
+  google-chrome
 ]

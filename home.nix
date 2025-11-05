@@ -46,7 +46,6 @@ in
     python313
     python313Packages.pip
     prismlauncher
-    temurin-jre-bin
     inetutils
     jetbrains.idea-community
     (pkgs.writeShellApplication {
