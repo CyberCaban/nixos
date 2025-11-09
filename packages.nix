@@ -26,7 +26,7 @@
   alacritty
   kitty
   # file manager
-  nautilus
+  nautilus xfce.thunar
   # pdf viewer
   zathura
   # md viewer
@@ -60,7 +60,7 @@
   hypridle
   # wallpapers
   inputs.swww.packages.${pkgs.system}.swww
-  waytrogen
+  waytrogen mpvpaper
   # colorschemes
   wallust
   # wayland zoom woomer
