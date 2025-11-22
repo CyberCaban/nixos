@@ -8,6 +8,8 @@
   p7zip
   zip
   unzip
+  # archiver gui
+  peazip
   # network
   nftables
   # devel
@@ -60,7 +62,7 @@
   hypridle
   # wallpapers
   inputs.swww.packages.${pkgs.system}.swww
-  waytrogen mpvpaper
+  waytrogen
   # colorschemes
   wallust
   # wayland zoom woomer
@@ -81,5 +83,14 @@
   # global java 21
   temurin-bin
 
+  # gdb
+  gdbHostCpuOnly
+  gdbgui
+
   google-chrome
+
+  # watch tools
+  inotify-tools
+  # uml
+  plantuml
 ]

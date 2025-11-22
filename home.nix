@@ -30,12 +30,12 @@ in
   home.stateVersion = "25.05";
 	home.packages = with pkgs; [
 	  inputs.zen-browser.packages."${system}".twilight
+    inputs.ayugram-desktop.packages.${pkgs.system}.ayugram-desktop
     pkgs.bibata-cursors
     pkgs.flat-remix-gtk
     fira-code
     psmisc
     pavucontrol
-    telegram-desktop
     bun
     nodejs
     # flameshot

@@ -9,6 +9,11 @@
     };
     hyprland.url = "github:hyprwm/Hyprland";
     swww.url = "github:LGFae/swww";
+    ayugram-desktop = {
+      type = "git";
+      submodules = true;
+      url = "https://github.com/ndfined-crp/ayugram-desktop/";
+    };
   };
 
   outputs = { self, nixpkgs, home-manager, zen-browser, hyprland, ... }@inputs: 

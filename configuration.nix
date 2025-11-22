@@ -127,6 +127,7 @@
     "nix-command"
     "flakes"
   ];
+
   # Auto gc
   nix.gc = {
     automatic = true;
@@ -139,6 +140,17 @@
   fonts.packages = with pkgs; [
     nerd-fonts.fira-code
   ];
+  nix = {
+    settings = {
+      substituters = [
+        "https://cache.nixos.org"
+        "https://cache.garnix.io"
+      ];
+      trusted-public-keys = [
+        "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
+      ];
+    };
+  };
   # nix-ld for dynamic linked programs
   programs.nix-ld.enable = true;
   programs.appimage = {
