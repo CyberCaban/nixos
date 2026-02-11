@@ -22,9 +22,9 @@
   boot.plymouth = {
       enable = true;
       # themes:
-      # catppuccin-[latte/macchiato/frappe/mocha]
+      # catppuccin-[latte/macchiato/frappe/mocha] (latte is broken)
       # bgrt
-      theme = "bgrt";
+      theme = "catppuccin-macchiato";
       themePackages = [ pkgs.catppuccin-plymouth ];
     };
   boot.loader.efi.canTouchEfiVariables = true;
@@ -129,11 +129,11 @@
   ];
 
   # Auto gc
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 7d";
-  };
+  # nix.gc = {
+  #   automatic = true;
+  #   dates = "weekly";
+  #   options = "--delete-older-than 7d";
+  # };
 
   # Store optimise
   nix.settings.auto-optimise-store = true;

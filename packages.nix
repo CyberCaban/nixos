@@ -1,4 +1,28 @@
 { pkgs, inputs, ... }: with pkgs; [
+  # Graphics/Display
+  libGL
+  libglvnd
+  mesa
+  vulkan-loader
+
+  # X11
+  libx11
+  libxrandr
+  libxinerama
+  libxcursor
+  libxi
+  libxext
+
+  # Wayland
+  wayland
+  wayland-scanner
+  libxkbcommon
+
+  # Audio
+  alsa-lib
+  pipewire
+  libpulseaudio
+
   file
   git
   wget
@@ -93,4 +117,7 @@
   inotify-tools
   # uml
   plantuml
+
+  # remote desktop
+  rustdesk-flutter
 ]

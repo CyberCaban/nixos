@@ -18,6 +18,7 @@ let
     waytrogen = "waytrogen";
     wlogout = "wlogout";
     yazi = "yazi";
+    tmux = "tmux";
   };
 in
 {
