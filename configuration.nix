@@ -98,7 +98,7 @@
   services.displayManager = {
     defaultSession = "hyprland";
     autoLogin = {
-        enable = true; # set to false for different DE or WM
+        enable = false; # set to false for different DE or WM
         user = "dmitry";
     };
     gdm = {
@@ -107,6 +107,11 @@
         settings = { };
     };
   };
+  services.journald.extraConfig = ''
+    SystemMaxUse=500M
+    MaxFileSec=1week
+    Compress=yes
+  '';
   programs = { 
     hyprland = { 
       enable = true;
@@ -144,10 +149,8 @@
     settings = {
       substituters = [
         "https://cache.nixos.org"
-        "https://cache.garnix.io"
       ];
       trusted-public-keys = [
-        "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g="
       ];
     };
   };
