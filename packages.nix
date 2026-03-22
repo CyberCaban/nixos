@@ -39,6 +39,7 @@
   # devel
   vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   neovim
+  ripgrep
   gcc
   gcc.cc.lib
   rustup
@@ -117,6 +118,8 @@
   inotify-tools
   # uml
   plantuml
+  # office
+  libreoffice-qt
 
   # remote desktop
   rustdesk-flutter

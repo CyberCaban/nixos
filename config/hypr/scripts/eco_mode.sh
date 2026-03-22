@@ -10,7 +10,7 @@ if [ "$HYPRECO" = 1 ]; then
         keyword decoration:fullscreen_opacity 1;\
         keyword general:gaps_in 0;\
         keyword general:gaps_out 0;\
-        keyword general:border_size 1;\
+        keyword general:border_size 5;\
         keyword decoration:rounding 0"
   hyprctl notify 1 5000 "rgb(40a02b)" "Eco [ON]"
   exit

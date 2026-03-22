@@ -11,7 +11,7 @@
     /* font-style: italic; */
 
     /* *.background */
-    --background-primary: {{background}};
+    --background-primary: {{foreground}};
     --background-secondary: {{background}};
     --background-tertiary: {{background}};
 

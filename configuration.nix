@@ -98,7 +98,7 @@
   services.displayManager = {
     defaultSession = "hyprland";
     autoLogin = {
-        enable = false; # set to false for different DE or WM
+        enable = true; # set to false for different DE or WM
         user = "dmitry";
     };
     gdm = {
