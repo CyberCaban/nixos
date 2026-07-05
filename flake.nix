@@ -27,6 +27,7 @@
       modules = [
         ./configuration.nix
         ./hardware-configuration.nix
+        ./flakes/happ/happ-module.nix
         home-manager.nixosModules.home-manager {
           home-manager = {
             useGlobalPkgs = true;

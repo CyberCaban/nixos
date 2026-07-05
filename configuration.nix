@@ -83,6 +83,7 @@
       };
       openFirewall = true;
     };
+    happ.enable = true;
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -116,6 +117,9 @@
     hyprland = { 
       enable = true;
       xwayland.enable = true;
+    };
+    niri = {
+      enable = true;
     };
     steam.enable = true;
   };
@@ -192,8 +196,12 @@
   # services.openssh.enable = true;
 
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [ 25565 ];
-  networking.firewall.allowedUDPPorts = [ 25565 ];
+  networking.firewall.allowedTCPPorts = [
+    25565 # Minecraft server
+  ];
+  networking.firewall.allowedUDPPorts = [
+    25565 # Minecraft server
+  ];
   # Or disable the firewall altogether.
 
   # This value determines the NixOS release from which the default

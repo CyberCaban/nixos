@@ -23,7 +23,6 @@ let
 in
 {
   imports = [
-
   ];
 
 	home.username = "dmitry";
