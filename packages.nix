@@ -54,23 +54,9 @@
   alacritty
   kitty
   # file manager
-  nautilus xfce.thunar
+  nautilus thunar
   # pdf viewer
   zathura
-  # md viewer
-  glow
-  # dmenu
-  wofi
-  # brightness control
-  brightnessctl
-  # clipboard daemon
-  wl-clipboard
-  cliphist
-  waybar
-  hyprpolkitagent
-  # notification daemon
-  dunst
-  libnotify
   # resource monitor
   btop
   #video playback
@@ -78,20 +64,11 @@
   totem
   # image viewer
   loupe
-  # logout menu
-  wlogout
+  # brightness control
+  brightnessctl
 
-  #network manager 
-  networkmanagerapplet
-  # lockscreen
-  hyprlock
-  hypridle
-  # wallpapers
-  inputs.swww.packages.${pkgs.system}.swww
-  waytrogen
   # colorschemes
   wallust
-  # wayland zoom woomer
   # disk usage analyzer
   dust
   # devices automount

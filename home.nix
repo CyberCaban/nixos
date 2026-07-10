@@ -9,7 +9,6 @@ let
     alacritty = "alacritty";
     btop = "btop";
     dunst = "dunst";
-    flameshot = "flameshot";
     hypr = "hypr";
     kitty = "kitty";
     nvim = "nvim";
@@ -23,6 +22,7 @@ let
 in
 {
   imports = [
+    inputs.noctalia.homeModules.default
   ];
 
 	home.username = "dmitry";
@@ -35,11 +35,9 @@ in
     pkgs.flat-remix-gtk
     fira-code
     psmisc
-    pavucontrol
     bun
     nodejs
     # flameshot
-    (flameshot.override { enableWlrSupport = true; })
     # google-chrome
     qbittorrent
     gh
@@ -85,6 +83,9 @@ in
       };
     };
     obsidian.enable = true;
+    noctalia = {
+      enable = true;
+    };
   };
 
   xdg.configFile = builtins.mapAttrs 

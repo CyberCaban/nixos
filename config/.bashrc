@@ -40,3 +40,6 @@ extract() {
 export LD_LIBRARY_PATH="/run/current-system/sw/lib:$LD_LIBRARY_PATH"
 export PATH="$HOME/.cargo/bin/:/usr/local/bin/:$PATH"
 export PS1='\[\e[38;5;76m\]\u\[\e[0m\]@\[\e[38;5;214m\]\h\[\e[0m\] in \[\e[38;5;32m\]\w\[\e[0m\] \\$ '
+
+# uv
+export PATH="/home/dmitry/.local/bin:$PATH"

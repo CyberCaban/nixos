@@ -12,6 +12,7 @@
 
   # Bootloader.
   #boot.loader.systemd-boot.enable = true;
+  boot.kernelPackages = pkgs.linuxPackages_6_18;
   boot.kernelParams = [
     "quiet"
     "splash"
@@ -132,10 +133,15 @@
     # };
   };
   hardware.graphics.enable = true;
+  hardware.bluetooth.enable = true;
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"
   ];
+  nix.settings = {
+    extra-substituters = [ "https://noctalia.cachix.org" ];
+    extra-trusted-public-keys = [ "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4=" ];
+  };
 
   # Auto gc
   # nix.gc = {
@@ -193,7 +199,7 @@
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
+  services.tuned.enable = true;
 
   # Open ports in the firewall.
   networking.firewall.allowedTCPPorts = [
