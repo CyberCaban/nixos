@@ -12,7 +12,7 @@
 
   # Bootloader.
   #boot.loader.systemd-boot.enable = true;
-  boot.kernelPackages = pkgs.linuxPackages_6_18;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.kernelParams = [
     "quiet"
     "splash"
@@ -20,6 +20,10 @@
     "rd.systemd.show_status=false"
     "systemd.show_status=false"
   ];
+  swapDevices = [{
+      device = "/var/lib/swapfile";
+      size = 16 * 1024;
+  }];
   boot.plymouth = {
       enable = true;
       # themes:
@@ -204,9 +208,11 @@
   # Open ports in the firewall.
   networking.firewall.allowedTCPPorts = [
     25565 # Minecraft server
+    24454
   ];
   networking.firewall.allowedUDPPorts = [
     25565 # Minecraft server
+    24454
   ];
   # Or disable the firewall altogether.
 

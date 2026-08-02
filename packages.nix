@@ -12,6 +12,8 @@
   libxcursor
   libxi
   libxext
+  libxrender
+  libxtst
 
   # Wayland
   wayland
@@ -67,6 +69,12 @@
   # brightness control
   brightnessctl
 
+  # android screencasting
+  scrcpy
+  # notifications
+  libnotify
+  # video wallpapers
+  mpvpaper
   # colorschemes
   wallust
   # disk usage analyzer
@@ -76,11 +84,11 @@
   # monitor selection
   nwg-displays
   # connect media devices
-  mtpfs jmtpfs gvfs libmtp
+  mtpfs gvfs libmtp
 
   vimPlugins.nvim-dbee
   # wine
-  wineWowPackages.stable
+  # wineWowPackages.stable
   # internalisation for C# apps
   icu
   # global java 21

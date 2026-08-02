@@ -27,12 +27,11 @@ in
 
 	home.username = "dmitry";
 	home.homeDirectory = "/home/dmitry";
-  home.stateVersion = "25.05";
+  home.stateVersion = "25.11";
 	home.packages = with pkgs; [
 	  inputs.zen-browser.packages."${system}".twilight
     inputs.ayugram-desktop.packages.${pkgs.system}.ayugram-desktop
     pkgs.bibata-cursors
-    pkgs.flat-remix-gtk
     fira-code
     psmisc
     bun
@@ -55,10 +54,10 @@ in
   };
   gtk = {
     enable = true;
-    theme = {
-      package = pkgs.flat-remix-gtk;
-      name = "Flat-Remix-GTK-Grey-Darkest";
-    };
+    # theme = {
+    #   package = pkgs.flat-remix-gtk;
+    #   name = "Flat-Remix-GTK-Grey-Darkest";
+    # };
     cursorTheme= {
       name = "Bibata-Modern-Classic";
       package = pkgs.bibata-cursors;

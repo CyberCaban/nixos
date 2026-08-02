@@ -7,7 +7,12 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hyprland.url = "github:hyprwm/Hyprland";
+    hyprland = {
+      type = "git";
+      url = "https://github.com/hyprwm/Hyprland";
+      rev = "531fc432036ef6f580688bc83502bacc7903c73f";
+      submodules = true;
+    };
     ayugram-desktop = {
       type = "git";
       submodules = true;
@@ -39,6 +44,7 @@
             extraSpecialArgs = { inherit inputs; system = "x86_64-linux"; };
           };
         }
+        (import ./hyprland-module.nix { inherit inputs; })
       ];
     };
   };

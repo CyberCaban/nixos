@@ -5,6 +5,7 @@ alias v='nvim'
 alias ll='ls -lha'
 alias s='source'
 alias yz='yazi'
+alias scrcpy='scrcpy --render-driver=opengl'
 
 nixshot() {
   nix-shell -p $1 --run $1
