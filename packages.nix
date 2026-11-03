@@ -2,8 +2,14 @@
   # Graphics/Display
   libGL
   libglvnd
+  librsvg
   mesa
   vulkan-loader
+  cmake
+
+  kubectl
+  kubernetes-helm
+  k9s # kuber tui
 
   # X11
   libx11
@@ -24,6 +30,13 @@
   alsa-lib
   pipewire
   libpulseaudio
+
+  # gtk
+  webkitgtk_4_1
+  wrapGAppsHook4
+
+  xdg-utils
+  pkg-config
 
   file
   git
@@ -100,10 +113,6 @@
 
   google-chrome
 
-  # watch tools
-  inotify-tools
-  # uml
-  plantuml
   # office
   libreoffice-qt
 

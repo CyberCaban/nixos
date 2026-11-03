@@ -1,3 +1,7 @@
+HISTCONTROL='ignoredups'
+HISTSIZE=5000
+HISTFILESIZE=5000
+
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'

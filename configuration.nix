@@ -126,7 +126,24 @@
     niri = {
       enable = true;
     };
-    steam.enable = true;
+    steam = {
+      enable = true;
+      # Hyprland/niri sessions inherit an ambient CAP_SYS_NICE capability
+      # from systemd-logind (compositor realtime scheduling). bwrap refuses
+      # to run when the calling process holds any capability unless it's
+      # setuid-root, so Steam's bwrap-based FHS wrapper fails with
+      # "Unexpected capabilities but not setuid, old file caps config?".
+      # Drop the ambient/inheritable caps once, then re-exec into the
+      # normal FHS wrapper script.
+      package = pkgs.steam.override {
+        extraPreBwrapCmds = ''
+          if [ -z "$STEAM_CAPS_DROPPED" ]; then
+            export STEAM_CAPS_DROPPED=1
+            exec ${pkgs.util-linux}/bin/setpriv --ambient-caps=-all --inh-caps=-all -- "$0" "$@"
+          fi
+        '';
+      };
+    };
   };
 
   virtualisation.docker = {
@@ -191,7 +208,14 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; import ./packages.nix { inherit pkgs; inherit inputs; }; 
-
+  # environment.variables = {
+  #   XDG_DATA_DIRS = [
+  #     "${pkgs.gtk3}/share/gsettings-schemas/${pkgs.gtk3.name}"
+  #     "${pkgs.gtk4}/share/gsettings-schemas/${pkgs.gtk4.name}"
+  #     "${pkgs.gsettings-desktop-schemas}/share/gsettings-schemas/${pkgs.gsettings-desktop-schemas.name}"
+  #     "${pkgs.webkitgtk_4_1}/share"
+  #   ];
+  # };
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
@@ -204,16 +228,29 @@
 
   # Enable the OpenSSH daemon.
   services.tuned.enable = true;
+  services.k3s = {
+    enable = false;
+    role = "server";
+    extraFlags = toString [
+      "--write-kubeconfig-mode=644"   # чтобы читать kubeconfig без root
+      # "--disable=traefik"           # раскомментируйте, если поставите свой ingress
+    ];
+  };
 
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [
-    25565 # Minecraft server
-    24454
-  ];
-  networking.firewall.allowedUDPPorts = [
-    25565 # Minecraft server
-    24454
-  ];
+  networking.firewall = {
+    allowedTCPPorts = [
+      25565 # Minecraft server
+      24454
+      6443 #k3s
+    ];
+    allowedUDPPorts = [
+      25565 # Minecraft server
+      24454
+      8472 # flannel vxlan k8s
+    ];
+    trustedInterfaces = [ "cni0" "flannel.1" ];      # доверять трафику подов
+  };
   # Or disable the firewall altogether.
 
   # This value determines the NixOS release from which the default
