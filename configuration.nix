@@ -8,6 +8,8 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./openvpn3.nix
+      ./stunnel-tensor.nix
     ];
 
   # Bootloader.
@@ -175,6 +177,7 @@
   nix.settings.auto-optimise-store = true;
   fonts.packages = with pkgs; [
     nerd-fonts.fira-code
+    nerd-fonts.martian-mono
   ];
   nix = {
     settings = {
@@ -251,6 +254,9 @@
     ];
     trustedInterfaces = [ "cni0" "flannel.1" ];      # доверять трафику подов
   };
+
+  services.resolved.enable = true;
+  programs.openvpn3.enable = true;
   # Or disable the firewall altogether.
 
   # This value determines the NixOS release from which the default

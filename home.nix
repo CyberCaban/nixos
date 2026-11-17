@@ -23,6 +23,22 @@ let
   };
   dotfiles = "${config.home.homeDirectory}/Documents/nixos/config";
   create_symlink = path: config.lib.file.mkOutOfStoreSymlink path;
+  tensorRdp = pkgs.writeShellApplication {
+    name = "tensor-rdp";
+    text = ''
+      read -r -p "Корпоративный логин: " username
+      if [ -z "$username" ]; then
+        exit 1
+      fi
+      ${pkgs.freerdp}/bin/xfreerdp \
+        /v:USD-KONOVALOV.corp.tensor.ru \
+        "/u:$username" /d:TENSOR-CORP \
+        '/auth-pkg-list:!kerberos' /size:1920x1080 +grab-keyboard || {
+          read -r -p "Подключение завершилось с ошибкой. Нажмите Enter для выхода."
+          exit 1
+        }
+    '';
+  };
 
   configs = {
     alacritty = "alacritty";
@@ -47,6 +63,27 @@ in
 	home.username = "dmitry";
 	home.homeDirectory = "/home/dmitry";
   home.stateVersion = "25.11";
+  xdg.desktopEntries.tensor-rdp = {
+    name = "Рабочий компьютер (RDP)";
+    comment = "Подключение к USD-KONOVALOV через VPN";
+    exec = "${pkgs.kitty}/bin/kitty -- ${tensorRdp}/bin/tensor-rdp";
+    icon = "computer";
+    categories = [ "Network" "RemoteAccess" ];
+  };
+  xdg.desktopEntries.tensor-vpn = {
+    name = "Tensor VPN";
+    comment = "Подключиться к корпоративной VPN";
+    exec = "${pkgs.kitty}/bin/kitty --hold --directory /home/dmitry/installs/ovpn3-tensor ${pkgs.openvpn3}/bin/openvpn3 session-start -c tensor_dev_yar_stunnel.ovpn";
+    icon = "network-vpn";
+    categories = [ "Network" ];
+  };
+  xdg.desktopEntries.bb-app = {
+    name = "BB";
+    comment = "Запустить BB";
+    exec = "${pkgs.kitty}/bin/kitty --hold ${pkgs.nodejs}/bin/npx --yes --prefer-offline bb-app@0.49.0";
+    icon = "utilities-terminal";
+    categories = [ "Development" ];
+  };
 	home.packages = with pkgs; [
 	  inputs.zen-browser.packages."${system}".twilight
     vscodeFhs

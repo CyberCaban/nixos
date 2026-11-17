@@ -15,6 +15,10 @@ nixshot() {
   nix-shell -p $1 --run $1
 }
 
+rebuild() {
+  sudo nixos-rebuild switch --flake ~/Documents/nixos/
+}
+
 # Utility
 mkcd() {
   mkdir -p "$1" && cd "$1"
