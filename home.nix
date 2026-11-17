@@ -2,6 +2,25 @@
 { config, pkgs, system, inputs, ... }:
 
 let
+  pkgsOther = import inputs.vscode {
+    system = pkgs.stdenv.hostPlatform.system;
+    config.allowUnfree = true;
+  };
+  vscodeFhs = pkgsOther.vscode.fhs.override {
+    # Nix-patched interpreters use their own ld.so.cache, so expose the C++
+    # runtime explicitly for binary Python wheels and extension binaries.
+    profile = ''
+      export LD_LIBRARY_PATH="${pkgs.stdenv.cc.cc.lib}/lib''${LD_LIBRARY_PATH:+:}$LD_LIBRARY_PATH"
+    '';
+    # Graphical sessions inherit CAP_SYS_NICE from the compositor. Drop it
+    # before bubblewrap starts, otherwise bwrap refuses to run.
+    extraPreBwrapCmds = ''
+      if [ -z "$VSCODE_CAPS_DROPPED" ]; then
+        export VSCODE_CAPS_DROPPED=1
+        exec ${pkgs.util-linux}/bin/setpriv --ambient-caps=-all --inh-caps=-all -- "$0" "$@"
+      fi
+    '';
+  };
   dotfiles = "${config.home.homeDirectory}/Documents/nixos/config";
   create_symlink = path: config.lib.file.mkOutOfStoreSymlink path;
 
@@ -30,6 +49,7 @@ in
   home.stateVersion = "25.11";
 	home.packages = with pkgs; [
 	  inputs.zen-browser.packages."${system}".twilight
+    vscodeFhs
     inputs.ayugram-desktop.packages.${pkgs.system}.ayugram-desktop
     pkgs.bibata-cursors
     fira-code

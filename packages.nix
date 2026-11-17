@@ -52,7 +52,7 @@
   # network
   nftables
   # devel
-  vscode
+  inputs.codex-cli-nix.packages.${pkgs.system}.default
   vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   neovim
   ripgrep
@@ -96,8 +96,10 @@
   udiskie
   # monitor selection
   nwg-displays
-  # connect media devices
-  mtpfs gvfs libmtp
+  ncdu
+  # work vpn
+  openvpn3
+  stunnel
 
   vimPlugins.nvim-dbee
   # wine

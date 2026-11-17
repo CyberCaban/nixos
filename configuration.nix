@@ -113,11 +113,11 @@
         settings = { };
     };
   };
-  services.journald.extraConfig = ''
-    SystemMaxUse=500M
-    MaxFileSec=1week
-    Compress=yes
-  '';
+  # services.journald.settings.Journal = ''
+  #   SystemMaxUse=500M
+  #   MaxFileSec=1week
+  #   Compress=yes
+  # '';
   programs = { 
     hyprland = { 
       enable = true;

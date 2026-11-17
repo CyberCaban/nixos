@@ -2,7 +2,9 @@
   description = "My nixOS configuration";
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    codex-cli-nix.url = "github:sadjow/codex-cli-nix";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
+    vscode.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -23,7 +25,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, zen-browser, hyprland, ... }@inputs: 
+  outputs = { self, nixpkgs, home-manager, zen-browser, hyprland, vscode, ... }@inputs: 
     let
       system = "x86_64-linux";
     in
